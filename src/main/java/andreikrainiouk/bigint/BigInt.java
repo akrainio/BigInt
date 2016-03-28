@@ -20,6 +20,7 @@ public class BigInt {
             positive = false;
             this.value = toList(value * -1);
         } else {
+
             positive = true;
             this.value = toList(value);
         }
