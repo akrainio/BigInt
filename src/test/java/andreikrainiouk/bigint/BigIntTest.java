@@ -1,12 +1,8 @@
 package andreikrainiouk.bigint;
 
-import andreikrainiouk.bigint.BigInt;
-
 import org.junit.Test;
+import static org.junit.Assert.*;
 
-/**
- * Created by Andrei on 3/27/2016.
- */
 public class BigIntTest {
     @Test
     public void testPrintBigInt() {
@@ -18,10 +14,55 @@ public class BigIntTest {
         num2.printBigInt();
     }
 
-    /*@Test
+    @Test
+    public void testNegCopy() {
+        BigInt num1 = new BigInt(-13);
+        BigInt num2 = num1.negCopy();
+        num1.printBigInt();
+        System.out.println("multiplied by -1 is:");
+        num2.printBigInt();
+        System.out.println();
+        num1 = new BigInt(13);
+        num2 = num1.negCopy();
+        num1.printBigInt();
+        System.out.println("multiplied by -1 is:");
+        num2.printBigInt();
+    }
+
+    @Test
     public void testCompareBigInt() {
         BigInt num1 = new BigInt(0);
         BigInt num2 = new BigInt(0);
-        assert num1.compareBigInt(num2) == 0;
-    }*/
+        assertEquals(0, num1.compareBigInt(num2));
+        num1 = new BigInt(1);
+        num2 = new BigInt(0);
+        assertEquals(1, num1.compareBigInt(num2));
+        num1 = new BigInt(0);
+        num2 = new BigInt(1);
+        assertEquals(-1, num1.compareBigInt(num2));
+        num1 = new BigInt(10);
+        num2 = new BigInt(1);
+        assertEquals(1, num1.compareBigInt(num2));
+        num1 = new BigInt(1);
+        num2 = new BigInt(10);
+        assertEquals(-1, num1.compareBigInt(num2));
+        num1 = new BigInt(-1);
+        num2 = new BigInt(0);
+        assertEquals(-1, num1.compareBigInt(num2));
+        num1 = new BigInt(-1);
+        num2 = new BigInt(-1);
+        assertEquals(0, num1.compareBigInt(num2));
+        num1 = new BigInt(-1);
+        num2 = new BigInt(-10);
+        assertEquals(1, num1.compareBigInt(num2));
+        num1 = new BigInt(-10);
+        num2 = new BigInt(-1);
+        assertEquals(-1, num1.compareBigInt(num2));
+        num1 = new BigInt(-10);
+        num2 = new BigInt(10);
+        assertEquals(-1, num1.compareBigInt(num2));
+        num1 = new BigInt(10);
+        num2 = new BigInt(-10);
+        assertEquals(1, num1.compareBigInt(num2));
+    }
 }
